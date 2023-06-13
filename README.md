@@ -1,5 +1,5 @@
 # DigitRecognizer
-Learn computer vision fundamentals with the famous MNIST data
+Learn computer vision fundamentals with the famous MNIST data + TKinter user input
 
 Source of the exercise:<br>
 https://www.kaggle.com/competitions/digit-recognizer/overview
