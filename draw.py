@@ -3,7 +3,6 @@ from PIL import ImageGrab
 import numpy as np
 from keras.models import load_model
 
-# Load the trained model
 model = load_model('digits.h5')
 
 # Create a blank canvas for drawing
@@ -26,8 +25,9 @@ def predict_number():
 
     # Make a prediction
     prediction = model.predict(image_array)
+    print(prediction)
     predicted_number = np.argmax(prediction)
-
+    print(predicted_number)
     # Display the predicted number
     result_label.config(text=f"Predicted Number: {predicted_number}")
 
@@ -49,10 +49,10 @@ predict_button.pack(side=tk.RIGHT, padx=10)
 
 # Implement drawing functionality
 def start_drawing(event):
-    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=5)
+    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=10)
 
 def draw(event):
-    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=5)
+    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=10)
 
 canvas.bind("<Button-1>", start_drawing)
 canvas.bind("<B1-Motion>", draw)
