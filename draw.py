@@ -1,11 +1,7 @@
 import tkinter as tk
-from PIL import Image, ImageTk, ImageGrab
+from PIL import ImageGrab
 import numpy as np
 from keras.models import load_model
-import io
-import skimage.io
-import skimage.transform
-from skimage.color import rgb2gray
 
 # Load the trained model
 model = load_model('digits.h5')
@@ -53,10 +49,10 @@ predict_button.pack(side=tk.RIGHT, padx=10)
 
 # Implement drawing functionality
 def start_drawing(event):
-    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black')
+    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=5)
 
 def draw(event):
-    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black')
+    canvas.create_oval(event.x, event.y, event.x, event.y, fill='black', width=5)
 
 canvas.bind("<Button-1>", start_drawing)
 canvas.bind("<B1-Motion>", draw)
